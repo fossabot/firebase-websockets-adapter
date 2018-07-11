@@ -1,6 +1,6 @@
 {
   "name": "firebase-websockets-adapter",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "A Firebase Websockets adapter",
   "main": "dist",
   "scripts": {
@@ -24,6 +24,5 @@
   "dependencies": {
     "jwt-simple": "^0.5.1",
     "ws": "^5.2.1"
-  },
-  "repository": "https://github.com/enteam/firebase-websockets-adapter.git"
+  }
 }
