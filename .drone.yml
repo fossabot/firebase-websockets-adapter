@@ -4,17 +4,15 @@ pipeline:
     commands:
       - npm install
       - npm run lint
+  npm_auth:
+    image: robertstettner/drone-npm-auth
+    secrets: [ npm_username, npm_password, npm_email ]
+    when:
+      branch: master
   publish:
     image: node:latest
     commands:
-      - npm install -g np npm-cli-login
-      - npm-cli-login -u $$npm_username -p $$npm_password -e matisiek11@gmail.com
-      - np patch --yolo --no-cleanup
-    when:
-      branch: master
-  publish_gh_pages:
-    image: plugins/gh-pages
-    secrets: [ github_username, github_password ]
-    pages_directory: ./
+      - node version.js
+      - npm publish
     when:
       branch: master
