@@ -4,15 +4,14 @@ node_js:
 
 cache: yarn
 
+before_install:
+  - npm install -g np npm-cli-login
+
 jobs:
   include:
     - stage: lint
       script: npm run lint
     - stage: publish
-      script: npm install -g np npm-cli-login
       script: npm-cli-login -u $NPM_USERNAME -p $NPM_PASSWORD -e $NPM_EMAIL
       script: np patch --yolo --no-cleanup
       if: type = push AND repo = enteam/firebase-websockets-adapter AND branch = master
-
-
-
