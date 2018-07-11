@@ -9,7 +9,8 @@
     "start": "node dist",
     "prestart": "npm run -s build",
     "lint": "eslint src",
-    "prepublish": "npm-auto-version"
+    "prepublish": "npm-auto-version",
+    "test": "echo 'test script is not defined'"
   },
   "author": "Matthew Wozniak <matisiek11@gmail.com>",
   "license": "MIT",
