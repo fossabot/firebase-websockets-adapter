@@ -7,7 +7,8 @@ pipeline:
   publish:
     image: node:latest
     commands:
-      - npm install --global release-it
+      - npm install -g np npm-cli-login
+      - npm-cli-login -u "$npm_username" -p "$npm_password" -e "$npm_email"
       - np patch --yolo --no-cleanup
     when:
       branch: master
