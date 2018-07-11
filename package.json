@@ -1,6 +1,6 @@
 {
   "name": "firebase-websockets-adapter",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "A Firebase Websockets adapter",
   "main": "dist",
   "scripts": {
