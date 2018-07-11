@@ -7,10 +7,8 @@ pipeline:
   publish:
     image: node:latest
     commands:
-      - git clone https://github.com/enteam/firebase-websockets-adapter.git target
-      - (echo -e "$npm_username\n$npm_password\n$npm_email" | npm login)
-      - cd npm install -g release-it
-      - (cd target ; release-it -n)
+      - npm install --global release-it
+      -
   publish_gh_pages:
     image: plugins/gh-pages
     secrets: [ github_username, github_password ]
