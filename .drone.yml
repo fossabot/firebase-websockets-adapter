@@ -4,14 +4,13 @@ pipeline:
     commands:
       - npm install
       - npm run lint
-  clone:
-    image: plugins/git
   publish:
     image: node:latest
     commands:
-      - echo -e "$npm_username\n$npm_password\n$npm_email" | npm login
-      - npm install -g release-it
-      - release-it -n
+      - git clone https://github.com/enteam/firebase-websockets-adapter.git target
+      - (echo -e "$npm_username\n$npm_password\n$npm_email" | npm login)
+      - cd npm install -g release-it
+      - (cd target ; release-it -n)
   publish_gh_pages:
     image: plugins/gh-pages
     secrets: [ github_username, github_password ]
