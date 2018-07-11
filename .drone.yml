@@ -10,7 +10,8 @@ pipeline:
     image: node:latest
     commands:
       - echo -e "$npm_username\n$npm_password\n$npm_email" | npm login
-      - npm run release
+      - npm install -g release-it
+      - release-it -n
   publish_gh_pages:
     image: plugins/gh-pages
     secrets: [ github_username, github_password ]
