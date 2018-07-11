@@ -25,5 +25,6 @@
   "dependencies": {
     "jwt-simple": "^0.5.1",
     "ws": "^5.2.1"
-  }
+  },
+  "repository": "https://github.com/enteam/firebase-websockets-adapter"
 }
