@@ -13,5 +13,9 @@ jobs:
     - stage: lint
       script: npm run lint
     - stage: publish
-      script: np patch --yolo --no-cleanup
+      script:
+        - git clone https://github.com/$TRAVIS_REPO_SLUG.git $TRAVIS_REPO_SLUG_publish
+        - cd $TRAVIS_REPO_SLUG_publish
+        - git checkout -qf $TRAVIS_COMMIT
+        - np patch --yolo --no-cleanup
       if: type = push AND repo = enteam/firebase-websockets-adapter AND branch = master
