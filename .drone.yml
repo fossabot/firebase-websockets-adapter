@@ -1,0 +1,19 @@
+pipeline:
+  build:
+    image: node:latest
+    commands:
+      - npm install
+      - npm run lint
+  clone:
+    image: plugins/git
+  publish:
+    image: node:latest
+    commands:
+      - echo -e "$npm_username\n$npm_password\n$npm_email" | npm login
+      - npm run release
+  publish_gh_pages:
+    image: plugins/gh-pages
+    secrets: [ github_username, github_password ]
+    pages_directory: ./
+    when:
+      branch: master
