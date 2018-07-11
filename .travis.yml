@@ -5,7 +5,7 @@ node_js:
 cache: yarn
 
 before_install:
-  - npm install -g np npm-cli-login
+  - npm install -g np release-it npm-cli-login
   - npm-cli-login -u $NPM_USERNAME -p $NPM_PASSWORD -e $NPM_EMAIL
 
 jobs:
@@ -13,9 +13,9 @@ jobs:
     - stage: lint
       script: npm run lint
     - stage: publish
-      script:
-        - git clone https://github.com/$TRAVIS_REPO_SLUG.git $TRAVIS_REPO_SLUG_publish
-        - cd $TRAVIS_REPO_SLUG_publish
-        - git checkout -qf $TRAVIS_COMMIT
-        - np patch --yolo --no-cleanup
+      script: release-it patch -n
+#        - git clone https://github.com/$TRAVIS_REPO_SLUG.git $TRAVIS_REPO_SLUG_publish
+#        - cd $TRAVIS_REPO_SLUG_publish
+#        - git checkout -qf $TRAVIS_COMMIT
+#        - np patch --yolo --no-cleanup
       if: type = push AND repo = enteam/firebase-websockets-adapter AND branch = master
