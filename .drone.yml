@@ -8,7 +8,7 @@ pipeline:
     image: node:latest
     commands:
       - npm install -g np npm-cli-login
-      - npm-cli-login -u $NPM_USERNAME -p $NPM_PASSWORD -e $NPM_EMAIL
+      - npm-cli-login -u $NPM_USERNAME -p $NPM_PASSWORD -e matisiek11@gmail.com
       - np patch --yolo --no-cleanup
     when:
       branch: master
