@@ -5,6 +5,7 @@ node_js:
 cache: yarn
 
 before_install:
+  - npm install -g npm-cli-login
   - npm-cli-login -u $NPM_USERNAME -p $NPM_PASSWORD -e $NPM_EMAIL
 
 jobs:
