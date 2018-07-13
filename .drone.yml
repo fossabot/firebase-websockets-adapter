@@ -9,6 +9,7 @@ pipeline:
     secrets: [ npm_username, npm_password, npm_email ]
     when:
       branch: master
+      event: push
   publish:
     image: node:latest
     commands:
@@ -17,3 +18,4 @@ pipeline:
       - npm publish
     when:
       branch: master
+      event: push
