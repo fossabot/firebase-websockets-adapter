@@ -9,7 +9,8 @@
     "start": "node dist",
     "prestart": "npm run -s build",
     "lint": "eslint src",
-    "test": "echo 'test script is not defined'"
+    "test": "echo 'test script is not defined'",
+    "prepare": "npm run -s build"
   },
   "author": "Matthew Wozniak <matisiek11@gmail.com>",
   "license": "MIT",
@@ -19,7 +20,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-stage-0": "^6.5.0",
-    "eslint": "^3.1.1",
+    "eslint": "^5.1.0",
     "node-fetch": "^2.1.2",
     "nodemon": "^1.9.2"
   },
